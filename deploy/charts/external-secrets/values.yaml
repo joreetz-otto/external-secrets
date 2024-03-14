@@ -3,6 +3,9 @@ replicaCount: 1
 # -- Specifies the amount of historic ReplicaSets k8s should keep (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy)
 revisionHistoryLimit: 10
 
+# -- Update strategy for the deployment (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)
+strategy: {}
+
 image:
   repository: ghcr.io/external-secrets/external-secrets
   pullPolicy: IfNotPresent
@@ -251,6 +254,8 @@ webhook:
     # -- The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template.
     name: ""
+  # -- Update strategy for the webhook (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)
+  strategy: {}
   nodeSelector: {}
 
   certManager:
@@ -400,6 +405,8 @@ certController:
     # -- The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template.
     name: ""
+  # -- Update strategy for the certController (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)
+  strategy: {}
   nodeSelector: {}
 
   tolerations: []
